@@ -227,18 +227,20 @@ const arrayOfPromises = [
   obtainInstruction("brusselsSprouts", 5),
   obtainInstruction("brusselsSprouts", 6),
   obtainInstruction("brusselsSprouts", 7),
-  obtainInstruction("brusselsSprouts", 8)
-]
+];
 
-const brusselsSproutsElement = document.getElementById("brusselsSprouts")
+const brusselsSproutsElement = document.getElementById("brusselsSprouts");
 Promise.all(arrayOfPromises)
   .then((data) => {
     console.log(data);
     for (const instruction of data) {
-      brusselsSproutsElement.innerHTML += `<li>${instruction}</li>`
+      brusselsSproutsElement.innerHTML += `<li>${instruction}</li>`;
     }
+    brusselsSproutsElement.innerHTML += "<li>Brussels sprouts are ready!</li>";
   })
-  .catch((error) => console.error(error));
+  .catch((error) => {
+    console.error(error);
+  });
 
 // async function brusselsSproutsSteps(instructions) {
 //   const bsResults = [];
